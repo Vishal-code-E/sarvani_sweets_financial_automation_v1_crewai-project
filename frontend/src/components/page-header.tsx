@@ -10,13 +10,13 @@ export default function PageHeader({
     action,
 }: PageHeaderProps) {
     return (
-        <div className="flex items-start justify-between mb-8">
+        <div className="flex items-start justify-between mb-10">
             <div>
-                <h1 className="text-3xl font-serif font-semibold text-black">
+                <h1 className="text-4xl font-bold text-white mb-2">
                     {title}
                 </h1>
                 {description && (
-                    <p className="mt-2 text-sm text-gray-600">{description}</p>
+                    <p className="text-lg text-gray-400">{description}</p>
                 )}
             </div>
             {action && <div>{action}</div>}
