@@ -1,0 +1,87 @@
+---
+hourly_branch_data_sync:
+  description: Sync and process the latest billing data from Microsoft Dynamics for
+    {branch_name}. Extract transaction details, categorize sales by product type,
+    update rolling revenue metrics, and flag any unusual transaction patterns for
+    review. Ensure all hourly data is accurately captured and categorized according
+    to GST slabs.
+  expected_output: 'A structured JSON report containing: hourly sales summary, transaction
+    count, product category breakdown, revenue by GST slab (0%, 5%, 12%, 18%, 28%),
+    and any anomaly flags with detailed descriptions. Include timestamp and branch
+    identifier for tracking.'
+  agent: branch_operations_manager
+daily_branch_financial_summary:
+  description: Compile daily financial summaries for {branch_name} including total
+    sales, expense categorization, inventory consumption, cash vs digital payment
+    analysis, and profit calculations. Cross-reference with previous day's data to
+    identify trends and potential issues.
+  expected_output: 'A comprehensive daily financial report in JSON format including:
+    total revenue, expense breakdown by category, payment method analysis, inventory
+    movement summary, daily profit/loss calculation, and comparison with previous
+    day and same day last week. Flag any significant variances.'
+  agent: branch_operations_manager
+  context:
+  - hourly_branch_data_sync
+gst_liability_calculation:
+  description: Calculate comprehensive GST liabilities across all branches for the
+    period {reporting_period}. Process CGST, SGST, and IGST calculations, track input
+    tax credits from vendor invoices, and prepare preliminary data for GSTR-1 and
+    GSTR-3B returns. Validate calculations against branch-level data.
+  expected_output: 'A detailed GST liability report in JSON format containing: total
+    output GST by type (CGST/SGST/IGST), input tax credit summary, net GST payable
+    amount, branch-wise GST breakdown, and return-ready data structures for GSTR filings.
+    Include validation checks and any discrepancies found.'
+  agent: gst_compliance_specialist
+  context:
+  - daily_branch_financial_summary
+tds_computation_and_tracking:
+  description: Process all vendor payments and employee salaries for the period {reporting_period}
+    to calculate accurate TDS deductions. Apply appropriate TDS sections and rates,
+    track exemption limits, and prepare quarterly TDS statements. Generate TDS certificates
+    and challan details.
+  expected_output: 'A comprehensive TDS report in JSON format including: total TDS
+    deducted by section (194C, 192, 194A etc.), vendor-wise TDS summary, employee
+    TDS calculations, quarterly TDS liability, challan preparation data, and TDS certificate
+    details ready for distribution.'
+  agent: tds_and_payroll_compliance_officer
+  context:
+  - daily_branch_financial_summary
+multi_branch_reconciliation_audit:
+  description: Perform comprehensive reconciliation analysis across all 8 branches
+    for the period {audit_period}. Cross-verify transaction data, identify duplicate
+    entries, detect suspicious patterns, validate inter-branch consistency, and flag
+    discrepancies. Compare aggregated branch totals with company-level financial data.
+  expected_output: 'A detailed audit report in JSON format containing: reconciliation
+    status by branch, list of duplicate transactions found, suspicious activity alerts,
+    variance analysis between branches, data integrity score, and recommendations
+    for resolving identified discrepancies. Include priority levels for each finding.'
+  agent: financial_reconciliation_and_audit_specialist
+  context:
+  - gst_liability_calculation
+  - tds_computation_and_tracking
+consolidated_financial_controller_review:
+  description: Review and validate all branch operations, compliance calculations,
+    and audit findings for the period {review_period}. Aggregate company-wide financial
+    metrics, approve or escalate compliance issues, coordinate resolution of flagged
+    anomalies, and prepare executive summary for stakeholders.
+  expected_output: 'An executive financial summary in structured format containing:
+    company-wide revenue and profit analysis, compliance status across all areas (GST,
+    TDS), critical issues requiring attention, branch performance comparison, operational
+    recommendations, and overall financial health assessment with key metrics and
+    trends.'
+  agent: main_financial_controller
+  context:
+  - multi_branch_reconciliation_audit
+ca_grade_financial_report_generation:
+  description: Generate comprehensive CA-grade financial reports for the period {reporting_period}
+    including balance sheets, profit & loss statements, cash flow analysis, and regulatory
+    compliance summaries. Ensure all reports meet Indian accounting standards and
+    audit requirements.
+  expected_output: 'A complete set of CA-grade financial reports including: detailed
+    Balance Sheet, comprehensive Profit & Loss Statement, Cash Flow Statement, Notes
+    to Accounts, GST and TDS compliance summary, branch-wise financial analysis, and
+    executive summary. All reports should be audit-ready and formatted for regulatory
+    submission.'
+  agent: financial_reporting_and_ca_documentation_specialist
+  context:
+  - consolidated_financial_controller_review

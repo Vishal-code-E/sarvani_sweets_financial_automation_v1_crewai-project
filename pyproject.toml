@@ -1,0 +1,24 @@
+[project]
+name = "sarvani_sweets_financial_automation"
+version = "0.1.0"
+description = "sarvani_sweets_financial_automation using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[litellm,tools]==1.4.1",
+]
+
+[project.scripts]
+sarvani_sweets_financial_automation = "sarvani_sweets_financial_automation.main:run"
+run_crew = "sarvani_sweets_financial_automation.main:run"
+train = "sarvani_sweets_financial_automation.main:train"
+replay = "sarvani_sweets_financial_automation.main:replay"
+test = "sarvani_sweets_financial_automation.main:test"
+run_with_trigger = "sarvani_sweets_financial_automation.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
