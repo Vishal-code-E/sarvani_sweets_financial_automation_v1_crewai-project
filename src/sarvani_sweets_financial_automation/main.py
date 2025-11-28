@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import sys
 from sarvani_sweets_financial_automation.crew import SarvaniSweetsFinancialAutomationCrew
 

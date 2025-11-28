@@ -33,7 +33,7 @@ class SarvaniSweetsFinancialAutomationCrew:
             
             max_execution_time=None,
             llm=LLM(
-                model="openai/gpt-4o-mini",
+                model="gemini/gemini-1.5-flash",
                 temperature=0.7,
             ),
             
@@ -56,7 +56,7 @@ class SarvaniSweetsFinancialAutomationCrew:
             
             max_execution_time=None,
             llm=LLM(
-                model="openai/gpt-4o-mini",
+                model="gemini/gemini-1.5-flash",
                 temperature=0.7,
             ),
             
@@ -79,7 +79,7 @@ class SarvaniSweetsFinancialAutomationCrew:
             
             max_execution_time=None,
             llm=LLM(
-                model="openai/gpt-4o-mini",
+                model="gemini/gemini-1.5-flash",
                 temperature=0.7,
             ),
             
@@ -102,7 +102,7 @@ class SarvaniSweetsFinancialAutomationCrew:
             
             max_execution_time=None,
             llm=LLM(
-                model="openai/gpt-4o-mini",
+                model="gemini/gemini-1.5-flash",
                 temperature=0.7,
             ),
             
@@ -125,7 +125,7 @@ class SarvaniSweetsFinancialAutomationCrew:
             
             max_execution_time=None,
             llm=LLM(
-                model="openai/gpt-4o-mini",
+                model="gemini/gemini-1.5-flash",
                 temperature=0.7,
             ),
             
@@ -148,7 +148,7 @@ class SarvaniSweetsFinancialAutomationCrew:
             
             max_execution_time=None,
             llm=LLM(
-                model="openai/gpt-4o-mini",
+                model="gemini/gemini-1.5-flash",
                 temperature=0.7,
             ),
             
