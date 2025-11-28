@@ -23,8 +23,8 @@ export default function RootLayout({
           </div>
           
           <Sidebar />
-          <main className="pl-80 transition-all duration-300 relative z-10 min-h-screen">
-            <div className="p-8 max-w-[calc(100vw-320px)]">
+          <main className="transition-all duration-300 relative z-10 min-h-screen pl-80">
+            <div className="p-8">
               {children}
             </div>
           </main>
