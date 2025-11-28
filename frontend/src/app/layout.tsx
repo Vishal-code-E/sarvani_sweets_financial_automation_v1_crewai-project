@@ -14,11 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>
+      <body className="antialiased bg-gray-50" suppressHydrationWarning>
         <div className="flex min-h-screen">
           <Sidebar />
           <main className="flex-1 ml-72 transition-all duration-300">
-            <div className="p-10">
+            <div className="p-8">
               {children}
             </div>
           </main>

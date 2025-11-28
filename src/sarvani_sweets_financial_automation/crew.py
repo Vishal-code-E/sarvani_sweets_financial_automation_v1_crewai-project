@@ -1,11 +1,13 @@
 import os
+import json
 
 from crewai import LLM
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import (
-	FileReadTool
+    FileReadTool
 )
+from crewai.utilities.converter import Converter as SchemaConverter
 
 
 
