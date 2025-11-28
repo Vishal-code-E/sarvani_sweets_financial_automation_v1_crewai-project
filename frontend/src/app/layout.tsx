@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Sidebar from "@/components/sidebar";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
-  title: "Sarvani Sweets Automation Suite",
-  description: "Financial automation dashboard for Sarvani Sweets multi-branch operations",
+  title: "Sarvani Sweets Financial Suite",
+  description: "Enterprise-grade financial automation dashboard for Sarvani Sweets multi-branch operations",
 };
 
 export default function RootLayout({
@@ -14,21 +14,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>
-        <div className="min-h-screen relative">
-          {/* Background particles effect */}
-          <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
+      <body className="antialiased bg-gray-50" suppressHydrationWarning>
+        <Navbar />
+        <main className="pt-16 min-h-screen">
+          <div className="max-w-[1440px] mx-auto p-8">
+            {children}
           </div>
-          
-          <Sidebar />
-          <main className="transition-all duration-300 relative z-10 min-h-screen pl-80">
-            <div className="p-8">
-              {children}
-            </div>
-          </main>
-        </div>
+        </main>
       </body>
     </html>
   );
