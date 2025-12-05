@@ -12,8 +12,6 @@ import {
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import {
   Tabs,
   TabsContent,
@@ -58,150 +56,145 @@ export default function CryptoSidebar() {
   ]
 
   return (
-    <div className="bg-background h-screen w-full max-w-xs overflow-y-scroll rounded-lg border shadow-sm">
-      <div className="p-6">
-        <div className="flex items-center gap-3 border-b pb-4">
-          <div className="bg-muted rounded-lg p-2">
-            <LayoutDashboard className="text-muted-foreground h-5 w-5" />
+    <div className="bg-black h-screen w-full max-w-[370px] overflow-y-auto text-white">
+      {/* Header */}
+      <div className="p-6 border-b border-white/10">
+        <div className="flex items-center gap-3">
+          <div className="bg-white/10 rounded-xl p-2.5 backdrop-blur-sm">
+            <LayoutDashboard className="h-6 w-6 text-white" />
           </div>
-          <p className="text-xl font-semibold">Creative Tim UI</p>
+          <h1 className="text-xl font-bold">Creative Tim UI</h1>
         </div>
       </div>
 
-      <div className="space-y-4 px-6 pb-6">
+      {/* Content */}
+      <div className="px-6 py-6">
+        {/* Tabs */}
         <Tabs defaultValue="staking" className="w-full">
-          <TabsList className="border-border h-auto w-full rounded-none border-b bg-transparent p-0">
+          <TabsList className="h-auto w-full bg-transparent p-0 mb-8 gap-2">
             <TabsTrigger
               value="staking"
-              className="data-[state=active]:border-foreground flex-1 rounded-none data-[state=active]:border-b-2 data-[state=active]:shadow-none"
+              className="flex-1 rounded-lg border border-white/20 bg-white/5 data-[state=active]:bg-white/10 data-[state=active]:border-white/30 text-white/60 data-[state=active]:text-white py-2.5 shadow-none"
             >
               Staking
             </TabsTrigger>
             <TabsTrigger
               value="fixedYield"
-              className="data-[state=active]:border-foreground flex-1 rounded-none data-[state=active]:border-b-2 data-[state=active]:shadow-none"
+              className="flex-1 rounded-lg border border-white/20 bg-white/5 data-[state=active]:bg-white/10 data-[state=active]:border-white/30 text-white/60 data-[state=active]:text-white py-2.5 shadow-none"
             >
               Fixed Yield
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="staking" className="mt-4">
-            <div className="space-y-6">
-              <div>
-                <small className="text-muted-foreground mb-3 block pl-2.5 text-sm font-semibold">
-                  Main
-                </small>
-                <ul className="flex min-w-60 flex-col gap-0.5">
-                  <li className="text-muted-foreground hover:text-foreground hover:bg-secondary flex cursor-pointer items-center rounded-md px-2.5 py-2 transition-colors">
-                    <span className="mr-2.5 grid shrink-0 place-items-center">
-                      <LayoutDashboard className="h-5 w-5" />
-                    </span>
-                    <span className="font-medium">Overview</span>
-                  </li>
-                  <li className="text-muted-foreground hover:text-foreground hover:bg-secondary flex cursor-pointer items-center rounded-md px-2.5 py-2 transition-colors">
-                    <span className="mr-2.5 grid shrink-0 place-items-center">
-                      <Folder className="h-5 w-5" />
-                    </span>
-                    <span className="font-medium">Portfolio</span>
-                  </li>
-                  <li className="text-muted-foreground hover:text-foreground hover:bg-secondary flex cursor-pointer items-center rounded-md px-2.5 py-2 transition-colors">
-                    <span className="mr-2.5 grid shrink-0 place-items-center">
-                      <Package className="h-5 w-5" />
-                    </span>
-                    <span className="font-medium">Yield Providers</span>
-                    <span className="ml-auto grid shrink-0 place-items-center pl-2.5">
-                      <Badge
-                        variant="destructive"
-                        className="border-transparent bg-red-500/10 text-red-500 hover:bg-red-500/20"
+          <TabsContent value="staking" className="mt-0 space-y-8">
+            {/* Main Section */}
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold text-white/50 uppercase tracking-wide mb-4">
+                Main
+              </h3>
+
+              <ul className="space-y-1">
+                <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
+                  <LayoutDashboard className="h-5 w-5" />
+                  <span className="font-medium">Overview</span>
+                </li>
+                <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
+                  <Folder className="h-5 w-5" />
+                  <span className="font-medium">Portfolio</span>
+                </li>
+                <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
+                  <Package className="h-5 w-5" />
+                  <span className="font-medium">Yield Providers</span>
+                  <Badge className="ml-auto bg-red-500/20 text-red-400 hover:bg-red-500/30 border-0 rounded-full px-2.5">
+                    14
+                  </Badge>
+                </li>
+              </ul>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t border-white/10" />
+
+            {/* Wallet Section */}
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold text-white/50 uppercase tracking-wide mb-4">
+                Wallet
+              </h3>
+
+              <ul className="space-y-1">
+                <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
+                  <Calculator className="h-5 w-5" />
+                  <span className="font-medium">Rewards Calculator</span>
+                </li>
+                <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
+                  <Gem className="h-5 w-5" />
+                  <span className="font-medium">Market Data</span>
+                </li>
+                <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
+                  <Settings className="h-5 w-5" />
+                  <span className="font-medium">Investments</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t border-white/10" />
+
+            {/* Trending Section */}
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold text-white/50 uppercase tracking-wide mb-4">
+                Trending
+              </h3>
+
+              <ul className="space-y-2">
+                {trendingCryptos.map((crypto) => (
+                  <li
+                    key={crypto.symbol}
+                    className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-white/5 cursor-pointer transition-all group"
+                  >
+                    <div className="bg-white/10 rounded-full h-12 w-12 flex items-center justify-center shrink-0">
+                      <img
+                        src={crypto.icon}
+                        alt={crypto.name}
+                        className="h-7 w-7"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-white font-semibold text-sm">
+                        {crypto.symbol}
+                      </p>
+                      <p className="text-white/50 text-xs">
+                        {crypto.name}
+                      </p>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <p className="text-white font-semibold text-sm">
+                        {crypto.price}
+                      </p>
+                      <div
+                        className={`flex items-center justify-end gap-1 text-xs font-semibold ${crypto.positive ? "text-green-400" : "text-red-400"
+                          }`}
                       >
-                        14
-                      </Badge>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <Separator />
-
-              <div>
-                <small className="text-muted-foreground mb-3 block pl-2.5 text-sm font-semibold">
-                  Wallet
-                </small>
-                <ul className="flex min-w-60 flex-col gap-0.5">
-                  <li className="text-muted-foreground hover:text-foreground hover:bg-secondary flex cursor-pointer items-center rounded-md px-2.5 py-2 transition-colors">
-                    <span className="mr-2.5 grid shrink-0 place-items-center">
-                      <Calculator className="h-5 w-5" />
-                    </span>
-                    <span className="font-medium">Rewards Calculator</span>
-                  </li>
-                  <li className="text-muted-foreground hover:text-foreground hover:bg-secondary flex cursor-pointer items-center rounded-md px-2.5 py-2 transition-colors">
-                    <span className="mr-2.5 grid shrink-0 place-items-center">
-                      <Gem className="h-5 w-5" />
-                    </span>
-                    <span className="font-medium">Market Data</span>
-                  </li>
-                  <li className="text-muted-foreground hover:text-foreground hover:bg-secondary flex cursor-pointer items-center rounded-md px-2.5 py-2 transition-colors">
-                    <span className="mr-2.5 grid shrink-0 place-items-center">
-                      <Settings className="h-5 w-5" />
-                    </span>
-                    <span className="font-medium">Investments</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Separator />
-
-              <div>
-                <small className="text-muted-foreground mb-3 block pl-2.5 text-sm font-semibold">
-                  Trending
-                </small>
-                <ul className="flex min-w-60 flex-col gap-1">
-                  {trendingCryptos.map((crypto) => (
-                    <li
-                      key={crypto.symbol}
-                      className="text-muted-foreground hover:text-foreground hover:bg-secondary flex cursor-pointer items-center rounded-md px-2.5 py-2 transition-colors"
-                    >
-                      <Card className="bg-muted mr-2.5 grid h-10 w-10 shrink-0 place-items-center border">
-                        <img
-                          src={crypto.icon}
-                          alt={crypto.name}
-                          className="h-6 w-6"
-                        />
-                      </Card>
-                      <div className="flex-1 space-y-0.5">
-                        <small className="text-foreground block text-sm font-semibold">
-                          {crypto.symbol}
-                        </small>
-                        <small className="text-muted-foreground block text-xs">
-                          {crypto.name}
-                        </small>
+                        {crypto.positive ? (
+                          <TrendingUp className="h-3 w-3" />
+                        ) : (
+                          <TrendingDown className="h-3 w-3" />
+                        )}
+                        <span>{crypto.change}</span>
                       </div>
-                      <span className="ml-auto block shrink-0 space-y-0.5 pl-2.5 text-end">
-                        <small className="text-foreground block text-sm font-semibold">
-                          {crypto.price}
-                        </small>
-                        <div
-                          className={`flex items-center justify-end gap-1 text-xs font-semibold ${crypto.positive ? "text-green-500" : "text-red-500"}`}
-                        >
-                          {crypto.positive ? (
-                            <TrendingUp className="h-3 w-3" />
-                          ) : (
-                            <TrendingDown className="h-3 w-3" />
-                          )}
-                          <span>{crypto.change}</span>
-                        </div>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </TabsContent>
 
-          <TabsContent value="fixedYield" className="mt-4">
-            <p className="text-muted-foreground text-sm">
-              Fixed Yield content goes here.
-            </p>
+          <TabsContent value="fixedYield" className="mt-0">
+            <div className="rounded-lg border border-white/10 p-8 text-center">
+              <p className="text-white/50 text-sm">
+                Fixed Yield content goes here.
+              </p>
+            </div>
           </TabsContent>
         </Tabs>
       </div>
