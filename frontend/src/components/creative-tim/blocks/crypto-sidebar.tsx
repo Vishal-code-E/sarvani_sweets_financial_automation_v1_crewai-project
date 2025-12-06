@@ -2,13 +2,14 @@
 
 import {
   Calculator,
-  Folder,
-  Gem,
+  Coins,
+  Home,
+  Landmark,
   LayoutDashboard,
-  Package,
-  Settings,
+  LineChart,
   TrendingDown,
   TrendingUp,
+  Wallet,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -95,15 +96,15 @@ export default function CryptoSidebar() {
 
               <ul className="space-y-1">
                 <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
-                  <LayoutDashboard className="h-5 w-5" />
+                  <Home className="h-5 w-5" />
                   <span className="font-medium">Overview</span>
                 </li>
                 <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
-                  <Folder className="h-5 w-5" />
+                  <Wallet className="h-5 w-5" />
                   <span className="font-medium">Portfolio</span>
                 </li>
                 <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
-                  <Package className="h-5 w-5" />
+                  <Coins className="h-5 w-5" />
                   <span className="font-medium">Yield Providers</span>
                   <Badge className="ml-auto bg-red-500/20 text-red-400 hover:bg-red-500/30 border-0 rounded-full px-2.5">
                     14
@@ -127,11 +128,11 @@ export default function CryptoSidebar() {
                   <span className="font-medium">Rewards Calculator</span>
                 </li>
                 <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
-                  <Gem className="h-5 w-5" />
+                  <LineChart className="h-5 w-5" />
                   <span className="font-medium">Market Data</span>
                 </li>
                 <li className="flex items-center gap-3 px-3 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 cursor-pointer transition-all">
-                  <Settings className="h-5 w-5" />
+                  <Landmark className="h-5 w-5" />
                   <span className="font-medium">Investments</span>
                 </li>
               </ul>
